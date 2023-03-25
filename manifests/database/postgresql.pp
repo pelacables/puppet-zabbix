@@ -12,14 +12,14 @@
 # @author Werner Dijkerman <ikben@werner-dijkerman.nl>
 class zabbix::database::postgresql (
   $zabbix_type                                        = '',
-  $zabbix_version                                     = $zabbix::params::zabbix_version,
+  $zabbix_version                                     = $zabbix::zabbix_version,
   $database_schema_path                               = '',
   $database_name                                      = '',
   $database_user                                      = '',
   $database_password                                  = '',
   $database_host                                      = '',
   Stdlib::Port::Unprivileged $database_port           = 5432,
-  $database_path                                      = $zabbix::params::database_path,
+  $database_path                                      = $zabbix::database_path,
 ) inherits zabbix::params {
   assert_private()
 

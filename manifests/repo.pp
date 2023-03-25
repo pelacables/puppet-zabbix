@@ -10,12 +10,12 @@
 # @author Werner Dijkerman <ikben@werner-dijkerman.nl>
 # @author Tim Meusel <tim@bastelfreak.de>
 class zabbix::repo (
-  Boolean                   $manage_repo               = $zabbix::params::manage_repo,
-  Boolean                   $manage_apt                = $zabbix::params::manage_apt,
-  Optional[Stdlib::HTTPUrl] $repo_location             = $zabbix::params::repo_location,
-  Optional[Stdlib::HTTPUrl] $frontend_repo_location    = $zabbix::params::frontend_repo_location,
-  Optional[Stdlib::HTTPUrl] $unsupported_repo_location = $zabbix::params::unsupported_repo_location,
-  String[1]                 $zabbix_version            = $zabbix::params::zabbix_version,
+  Boolean                   $manage_repo               = $zabbix::manage_repo,
+  Boolean                   $manage_apt                = $zabbix::manage_apt,
+  Optional[Stdlib::HTTPUrl] $repo_location             = $zabbix::repo_location,
+  Optional[Stdlib::HTTPUrl] $frontend_repo_location    = $zabbix::frontend_repo_location,
+  Optional[Stdlib::HTTPUrl] $unsupported_repo_location = $zabbix::unsupported_repo_location,
+  String[1]                 $zabbix_version            = $zabbix::zabbix_version,
 ) inherits zabbix::params {
   if $manage_repo {
     case $facts['os']['name'] {
